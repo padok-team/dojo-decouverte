@@ -1,8 +1,7 @@
 data "aws_availability_zones" "available" {}
 
 /* 
-VPC is Virtual Private Cloud.
-This module will create a VPC with private and public subnets
+This module will create a VPC with one public subnet and no private subnet
 */
 module "vpc" {
   source          = "terraform-aws-modules/vpc/aws"

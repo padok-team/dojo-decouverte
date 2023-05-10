@@ -215,9 +215,9 @@ Dans le dossier infrastructure, il y a donc :
 ### Théorie - Réseau
 
 Avant de commencer à déployer une machine virtuelle sur AWS, il faut d'abord avoir un réseau. Celui-ci a déjà été déployé en amont.
-Voici un schéma simple du réseau qui a été déployé pour permettre de déployer la VM :
+Voici un schéma simple du réseau qui a été déployé pour permettre de déployer la VM et de s'y connecter :
 
-![Réseau](./assets/ec2.excalidraw-5.png)
+![Réseau](.attachments/ec2.png)
 
 Ce schéma contient :
 
@@ -434,6 +434,10 @@ resource "aws_security_group" "allow_public_ssh" {
 ### Trouve le flag !
 
 Un mini flag est à trouver dans la VM une fois connecté sur celle-ci !
+
+## Cleaning
+
+Avant de partir lance un `terraform destroy` pour supprimer toutes les ressources créées. Merci
 
 ## Bonus
 
