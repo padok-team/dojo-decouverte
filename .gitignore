@@ -1,0 +1,8 @@
+**/*/.terraform
+.aws
+.envrc
+.terraform*
+terraform.tfstate*
+.vscode
+.ssh
+__pycache__
