@@ -1,3 +1,9 @@
+// Random string so each student can have a different name
+resource "random_string" "unique_id" {
+  length  = 8
+  special = false
+}
+
 # AMI to create public EC2 instance
 data "aws_ami" "ubuntu" {
   most_recent = true
@@ -17,7 +23,7 @@ data "aws_ami" "ubuntu" {
 
 # Add SSH Key for my EC2 Instances
 resource "aws_key_pair" "deployer" {
-  key_name   = "ec2-key"
+  key_name   = "${random_string.unique_id.id}-ec2-key"
   public_key = var.ssh_key
 }
 
@@ -44,7 +50,7 @@ resource "aws_instance" "public" {
 
 # Security group
 resource "aws_security_group" "allow_public_ssh" {
-  name        = "ec2-public-ssh"
+  name        = "${random_string.unique_id.id}-ec2-public-ssh"
   vpc_id      = var.vpc_id
   description = "Allows access to SSH Port"
 
